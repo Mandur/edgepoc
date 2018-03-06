@@ -73,5 +73,5 @@ def main():
         json_formatted = json.dumps(recognized_person)
         sender.send_event_to_output('detectionOutput', json_formatted, msg_properties, detection_index)
 
-if __name__ == "__main__":
-    main()
+    if __name__ == "__main__":
+        main()

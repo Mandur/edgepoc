@@ -55,3 +55,4 @@ class Sender(object):
 
         self.client.send_event_async(
             outputQueueName, event, send_confirmation_callback, send_context)
+
