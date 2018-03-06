@@ -9,8 +9,6 @@ RUN apt-get update && \
         yasm \
         pkg-config \
         libswscale-dev \
-        libtbb2 \
-        libtbb-dev \
         libjpeg-dev \
         libpng-dev \
         libtiff-dev \
