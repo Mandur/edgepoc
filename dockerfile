@@ -1,4 +1,5 @@
 FROM vjrantal/azure-iot-sdk-python 
+RUN apt-get -y install python3-pip
 RUN apt-get update
 WORKDIR /azure-iot-sdk-python/device/samples
 run pip3 install picamera
