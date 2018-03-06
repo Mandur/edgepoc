@@ -8,6 +8,7 @@ RUN apt-get update && \
         unzip \
         yasm \
         pkg-config \
+RUN apt-get install -y \    
         libswscale-dev \
         libjpeg-dev \
         libpng-dev \

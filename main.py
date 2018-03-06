@@ -59,7 +59,7 @@ def do_face_recognition():
 def main():
     detection_index=0
     # These variables are set by the IoT Edge Agent
-    CONNECTION_STRING = os.getenv('EdgeHubConnectionString', "HostName=testeriot.azure-devices.net;DeviceId=testmike;SharedAccessKey=kon1VMRcLe/0+D27OnekUues548hdyEU/AIqLlKl6qo=")
+    CONNECTION_STRING = os.getenv('EdgeHubConnectionString')
     CA_CERTIFICATE = os.getenv('EdgeModuleCACertificateFile', False)
     sender = Sender(CONNECTION_STRING, CA_CERTIFICATE)
     print("connected to "+CONNECTION_STRING)
