@@ -8,9 +8,8 @@ run pip3 install picamera
 run pip3 install face_recognition
 run apt-get -y install software-properties-common python-software-properties
 run add-apt-repository ppa:ubuntu-raspi2/ppa
-RUN /bin/bash
-# RUN apt-get  -y install libraspberrypi-bin
-# RUN usermod -a -G video root
-# COPY *.py ./
-# COPY img/* img/
-# ENTRYPOINT ["python3","main.py"]
+RUN apt-get update
+RUN apt-get  -y install libraspberrypi-bin
+COPY *.py ./
+COPY img/* img/
+ENTRYPOINT ["python3","main.py"]
