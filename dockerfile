@@ -1,4 +1,4 @@
-FROM vjrantal/azure-iot-sdk-python 
+FROM mandrx/azure-iot-sdk-python-arm
 RUN apt-get -y install python3-pip
 RUN apt-get -y install python3-scipy
 RUN apt-get -y install libtiff5-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk
