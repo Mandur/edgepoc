@@ -4,7 +4,7 @@ import face_recognition
 import picamera
 import numpy as np
 # IOT code
-#from sender import Sender
+from sender import Sender
 
 
 def setup():
