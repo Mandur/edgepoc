@@ -12,4 +12,4 @@ RUN apt-get update
 RUN apt-get  -y install libraspberrypi-bin
 COPY *.py ./
 COPY img/* img/
-ENTRYPOINT ["python3","main.py"]
+ENTRYPOINT ["python3","-u","main.py"]

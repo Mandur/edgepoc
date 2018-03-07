@@ -76,14 +76,14 @@ def main():
     camera, known_face_encodings, known_face_names = setup()
     while True:
         recognized_person=do_face_recognition(camera, known_face_encodings, known_face_names)
-        if recognized_person != "":
-            print(recognized_person)
-            if sender:
-                msg_properties = {
-                    'detection_index': str(detection_index)
-                }
-            json_formatted = json.dumps({"face":recognized_person})
-            sender.send_event_to_output(json_formatted, msg_properties, detection_index)
+   
+        print(recognized_person)
+        if sender:
+            msg_properties = {
+                'detection_index': str(detection_index)
+            }
+        json_formatted = json.dumps({"face":recognized_person})
+        sender.send_event_to_output(json_formatted, msg_properties, detection_index)
 
 main()
 
