@@ -44,7 +44,7 @@ class Sender(object):
             print('Setting IoT Edge TrustedCerts failed (%s)' % iothub_client_error)
         file.close()
 
-    def send_event_to_output(self, outputQueueName, event, properties, send_context):
+    def send_event_to_output(self,  event, properties, send_context):
         if not isinstance(event, IoTHubMessage):
             event = IoTHubMessage(bytearray(event, 'utf8'))
 
@@ -54,5 +54,5 @@ class Sender(object):
                 prop_map.add_or_update(key, properties[key])
 
         self.client.send_event_async(
-            outputQueueName, event, send_confirmation_callback, send_context)
+            event, send_confirmation_callback, send_context)
 
