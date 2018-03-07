@@ -6,9 +6,9 @@ RUN apt-get update
 WORKDIR /azure-iot-sdk-python/device/samples
 run pip3 install picamera 
 run pip3 install face_recognition
-run apt-get install software-properties-common python-software-properties
+run apt-get -y install software-properties-common python-software-properties
 run add-apt-repository ppa:ubuntu-raspi2/ppa
-RUN apt-get install libraspberrypi-bin -y
+RUN apt-get  -y install libraspberrypi-bin
 RUN usermod -a -G video root
 COPY *.py ./
 COPY img/* img/
