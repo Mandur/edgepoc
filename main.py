@@ -83,7 +83,7 @@ def main():
                     'detection_index': str(detection_index)
                 }
             json_formatted = json.dumps({"face":recognized_person})
-            sender.send_event_to_output('detectionOutput', json_formatted, msg_properties, detection_index)
+            sender.send_event_to_output(json_formatted, msg_properties, detection_index)
 
 main()
 
