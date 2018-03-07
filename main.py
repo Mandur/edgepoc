@@ -51,7 +51,7 @@ def do_face_recognition(camera, known_face_encodings, known_face_names):
     face_locations = face_recognition.face_locations(output)
     print("Found {} faces in image.".format(len(face_locations)))
     if(len(face_locations)==0):
-        return null
+        return ""
     face_encodings = face_recognition.face_encodings(output, face_locations)
     name = "Unknown Person"
     for face_encoding in face_encodings:
@@ -68,21 +68,22 @@ def do_face_recognition(camera, known_face_encodings, known_face_names):
 def main():
     detection_index=0
     # These variables are set by the IoT Edge Agent
-    #CONNECTION_STRING = os.getenv('EdgeHubConnectionString')
-    #CA_CERTIFICATE = os.getenv('EdgeModuleCACertificateFile', False)
-    #sender = Sender(CONNECTION_STRING, CA_CERTIFICATE)
-    #print("connected to "+CONNECTION_STRING)
+    CONNECTION_STRING = os.getenv('EdgeHubConnectionString')
+    CA_CERTIFICATE = os.getenv('EdgeModuleCACertificateFile', False)
+    sender = Sender(CONNECTION_STRING, CA_CERTIFICATE)
+    print("connected to "+CONNECTION_STRING)
     print('Setting up face recognition module')
     camera, known_face_encodings, known_face_names = setup()
     while True:
         recognized_person=do_face_recognition(camera, known_face_encodings, known_face_names)
-        print(recognized_person)
-        #if sender:
-        #    msg_properties = {
-        #        'detection_index': str(detection_index)
-        #    }
-        #json_formatted = json.dumps(recognized_person)
-        #sender.send_event_to_output('detectionOutput', json_formatted, msg_properties, detection_index)
+        if recognized_person != "":
+            print(recognized_person)
+            if sender:
+                msg_properties = {
+                    'detection_index': str(detection_index)
+                }
+            json_formatted = json.dumps(recognized_person)
+            sender.send_event_to_output('detectionOutput', json_formatted, msg_properties, detection_index)
 
 main()
 
